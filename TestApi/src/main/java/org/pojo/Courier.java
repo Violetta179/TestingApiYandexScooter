@@ -1,7 +1,8 @@
 package org.pojo;
 
 
-
+// в материале не было, но на реальных проектах будем использовать lombok, чтобы не писать геттеры и сеттеры и прочую рутину руками
+// достаточно будет написать @Data над классом
 public class Courier {
     public  String login;
     public  String password;

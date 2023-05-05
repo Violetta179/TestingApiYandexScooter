@@ -50,6 +50,9 @@ public class AcceptOrderNumberTest {
     @Description("запрос без номера заказа возвращает ошибку;")
     public void receiveOrderWithoutStatus400()
     {
+        // делай переносы на новую строку, чтобы код легче читался,
+        // избегай слишком длинных строк
+        // статус код лучше в начале проверять, а потом уже тело ответа
         orderManager.acceptOrderNumber("").then().body("message",equalTo("Недостаточно данных для поиска")).statusCode(400);
     }
 
