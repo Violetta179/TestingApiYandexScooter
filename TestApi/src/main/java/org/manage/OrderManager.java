@@ -24,6 +24,7 @@ public class OrderManager {
     {
         return given()
                 .header("Content-type", "application/json")
+                // .queryParam("courierId",courierId), дальше у тебя такая конструкция используется, а здесь почему нет?
                 .get(endpointOrders+"?courierId="+courierId);
     }
 
@@ -33,6 +34,9 @@ public class OrderManager {
         return given()
                 .header("Content-type", "application/json")
                 .queryParam("courierId",courierId)
+            // если сделаем String endpointAcceptOrders = "/api/v1/orders/accept/{id}";, то можно будет использовать
+            // .pathParam("id", orderId)
+            // .put(endpointAcceptOrders);
                 .put(endpointAcceptOrders+orderId);
     }
 
@@ -55,6 +59,7 @@ public class OrderManager {
     {
         return given()
                 .header("Content-type", "application/json")
+            // Map.of("track", track) - это тоже самое, что и "{\"track\": \"" + track + "\"}"
                 .body("{\n" +
                         "    \"track\":" +track +
                         "}")
